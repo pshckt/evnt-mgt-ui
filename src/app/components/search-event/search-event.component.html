@@ -1,0 +1,28 @@
+<div>
+    <h1>Search Event</h1>
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+      
+        <div>
+            
+            <label for="Country">Country: &nbsp;</label>
+            <select
+              class="custom-select mb-3"
+              formControlName="country"
+            >
+              <option value="">Choose Country</option>
+              <option *ngFor="let country of countries" [ngValue]="country">
+                {{ country }}
+              </option>
+            </select>&nbsp;
+            <label for="location"> Location:&nbsp; </label>
+            <input formControlName="location" required type="text">&nbsp;
+            <label for="eventDate"> Date: &nbsp;</label>
+            <input formControlName="eventDate" type="date">
+        </div>
+        <button>Submit</button>
+    <br/>
+        <span>Don't have an account?
+            <a routerLink="/registration">Registration</a></span>
+    </form>
+    
+</div>

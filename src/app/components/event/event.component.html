@@ -1,0 +1,53 @@
+<div *ngIf="enableEventForm; then shFrmTemplate else displayEvntTemplate">
+  <!-- Show event creation form-->
+</div>
+<ng-template #shFrmTemplate>
+  <div>
+    <h3>Please fill the event information:</h3>
+    <form [formGroup]="eventFrm" (ngSubmit)="register()">
+
+      <div>
+        <label for="eventName"> Event Name:&nbsp; </label>
+        <input formControlName="eventName" required type="text">&nbsp;
+        <label for="Country">Country: &nbsp;</label>
+        <select class="custom-select mb-3" formControlName="country">
+          <option value="">Choose Country</option>
+          <option *ngFor="let country of countries" [ngValue]="country">
+            {{ country }}
+          </option>
+        </select>&nbsp;
+        <label for="location"> Location:&nbsp; </label>
+        <input formControlName="location" required type="text"><br/>
+        <label for="eventStart">Event Start: &nbsp;</label>
+        <input formControlName="eventStart" type="datetime-local">&nbsp;&nbsp;
+        <label for="eventEnd">Event End: &nbsp;</label>
+        <input formControlName="eventEnd" type="datetime-local"><br/>
+        <label for="eventDescription"> Event Description:&nbsp; </label>
+        <textarea formControlName="eventDescription" require></textarea>&nbsp;      
+        
+        
+      </div>
+      <button>Submit</button>
+      <br />
+      <span>Don't have an account?
+        <a routerLink="/registration">Registration</a></span>
+    </form>
+  </div>
+
+</ng-template>
+
+<ng-template #displayEvntTemplate>
+  <!-- <h3>Registered event information</h3> -->
+  <div>
+    <div style="float: left; width: 50%;">
+      Event Image
+    </div>
+    <div style="float: right; width: 50%;">
+      <p>Evnet Name{{event.eventName}}</p>
+      <p>Evnet Description{{event.description}}</p>
+      <p>Evnet Location{{event.location}}</p>
+      <p>Evnet Date</p>
+      <p>Evnet Time</p>
+    </div>
+  </div>
+</ng-template>

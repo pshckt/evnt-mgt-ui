@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="rgst" style="float: left;width: 50%;">
+        <h2>Events Registered</h2>
+    </div>
+    <div class="new-rgst" style="float: right;width: 50%;text-align: right;">
+        <h2><a routerLink="/registerEvent" routerLinkActive="active">Register Event</a></h2>
+
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>
+<div *ngFor="let event of events">
+    <div class="container" (load)="setEventId(event.eventId)" >
+        <div class="column" >
+           <app-event [eventId]="event.eventId" class="col-md-6"></app-event>
+        </div>
+    </div>
+    
+</div>

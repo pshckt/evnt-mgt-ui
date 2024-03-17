@@ -20,5 +20,42 @@
       "email": "test@well",
       "password": "1321"
     }
+  ],
+  "events":[
+    {
+      "eventId": 123,
+      "eventName":"Event1",
+      "description":"Traing for new Koing",
+      "location":"Bangalore",
+      "status":"pending"
+    },
+    {
+      "eventId": 124,
+      "eventName":"Event2",
+      "description":"Traing for Birthday celebrari",
+      "location":"Hyderabad",
+      "status":"pending"
+    },
+    {
+      "eventId": 125,
+      "eventName":"Event3",
+      "description":"Traing for Corporate Event",
+      "location":"Sydney",
+      "status":"pending"
+    },
+    {
+      "eventId": 126,
+      "eventName":"Event4",
+      "description":"Traing for Board ",
+      "location":"Washington",
+      "status":"pending"
+    },
+    {
+      "eventId": 127,
+      "eventName":"Event5",
+      "description":"Traing for Board ",
+      "location":"London",
+      "status":"pending"
+    }
   ]
 }

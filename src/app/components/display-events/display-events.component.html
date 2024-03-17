@@ -1,0 +1,45 @@
+<div class="row alert-msg" *ngIf="isEventApproved">
+    <div class="col-xs-12">
+        <p class="alert alert-success">
+            <strong>{{message}}</strong>
+        </p>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+
+    <h2>Events for Approval :</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of events">
+                <td>{{ event.eventId }}</td>
+                <td>{{ event.eventName }}</td>
+                <td>{{event.description}}</td>
+                <td>{{event.location}}</td>
+                <td>{{ event.status }}</td>
+                <td>
+                    <button type="button" [class.selected]='event === selectedEvent' (click)="detail(event)">Details</button> &nbsp;
+                    <button type="button" (click)="approve(event.eventId)">Approve</button> &nbsp;
+                    <button type="button" (click)="reject(event.eventId)">Reject</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!events.length">There is no events for approval.</div>
+    <app-event-details [event] = "selectedEvent"></app-event-details>
+</div>
+
+
+
